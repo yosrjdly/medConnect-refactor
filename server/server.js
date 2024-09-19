@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
+const doctorRoute=require("./routes/doctorRoutes")
 
 // Load environment variables
 dotenv.config();
@@ -25,6 +26,21 @@ mongoose.connect(process.env.MONGO_URI)
 app.get('/', (req, res) => {
   res.send('Welcome to MedConnect API');
 });
+
+//doctor route 
+app.use('/api/doctor',doctorRoute )
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
